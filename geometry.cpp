@@ -42,11 +42,13 @@ namespace geometry{
        bool intersect_segment_ray(double x1R, double y1R,double x2R, double y2R,double x1, double y1,double x2, double y2)
     {
         double X = line_intersection_X(x1R,y1R,x2R,y2R,x1,y1,x2,y2), Y = geometry::line_intersection_Y(x1R,y1R,x2R,y2R,x1,y1,x2,y2);
-        
-        if(line_intersection(x1R,y1R,x2R,y2R,x1,y1,x2,y2) && X >= x1R && X >= std::min(x1,x2) 
+        if(x1R<x2R) //the direction of the ray (can work only x or y)
+            if(line_intersection(x1R,y1R,x2R,y2R,x1,y1,x2,y2) && X >= x1R && X >= std::min(x1,x2) && X <= std::max(x1,x2) && Y >= std::min(y1,y2) && Y <= std::max(y1,y2))
+            return 1;
+        else if(line_intersection(x1R,y1R,x2R,y2R,x1,y1,x2,y2) && X <= x1R && X >= std::min(x1,x2) 
          && X <= std::max(x1,x2) && Y >= std::min(y1,y2) && Y <= std::max(y1,y2))
-         return 1;
-         else return 0;
+        else 
+            return 0;
     }
     bool exercise(double x1, double y1,double x2, double y2,double x3, double y3,double x4, double y4, double x1R, double y1R, double x2R, double y2R)
     {

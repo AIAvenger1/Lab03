@@ -3,7 +3,7 @@ CFLAGS = -Wno-implicit-function-declaration
 all: output
 
 output: main.o geometry.o quad.o ray.o
-	@echo "Linking and producing the output application"
+	@echo "Linking and producing the output applications"
 	g++ $(CFLAGS) main.o geometry.o quad.o ray.o -o output
 	
 

@@ -16,6 +16,6 @@ int main(){
     geometry::ray::read_ray(x1R, y1R, x2R, y2R);
     if(geometry::exercise(x1,y1,x2,y2,x3,y3,x4,y4,x1R, y1R, x2R, y2R))
     std::cout << "Yes" << '\n';
-    else std::cout << "No" << '\n';
+    else std::cout << "NO" << '\n';
     return 0;
 }
